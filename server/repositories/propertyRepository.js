@@ -30,7 +30,7 @@ const findPropertiesByOwner = async (ownerId) => {
 
 // Get a single property by ID
 const findPropertyById = async (id) => {
-  return await Property.findById(id);
+  return await Property.findById(id).populate('owner', 'username email');
 };
 
 // Update a property by ID

@@ -87,7 +87,7 @@ const updateListing = async (req, res) => {
     }
 
     // Ownership check
-    if (property.owner.toString() !== req.user.id) {
+    if (property.owner._id.toString() !== req.user.id) {
       return res.status(403).json({ message: 'Not authorized to modify this listing' });
     }
 
@@ -110,7 +110,7 @@ const deleteListing = async (req, res) => {
     }
 
     // Ownership check
-    if (property.owner.toString() !== req.user.id) {
+    if (property.owner._id.toString() !== req.user.id) {
       return res.status(403).json({ message: 'Not authorized to delete this listing' });
     }
 
