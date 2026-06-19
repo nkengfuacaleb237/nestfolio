@@ -1,13 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
-
-:root {
-  --color-ink: #1C1B1A;
-  --color-cream: #FAF6F0;
-  --color-clay: #C1622D;
-  --color-sage: #7A8B6F;
-  --color-stone: #E8E2D6;
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 
 * {
   margin: 0;
@@ -16,16 +8,29 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--color-cream);
-  color: var(--color-ink);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: #F4F6F9;
+  color: #0A0F1E;
 }
 
 .font-display {
   font-family: 'Fraunces', serif;
 }
+ }
 
-:focus-visible {
-  outline: 2px solid var(--color-clay);
-  outline-offset: 2px;
+
+.typewriter-text {
+  overflow: hidden;
+  border-right: 3px solid #F5A623;
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) infinite alternate, blink 0.75s step-end infinite;
+  max-width: fit-content;
+}
+@keyframes typewriter {
+  0% { width: 0 }
+  50% { width: 100% }
+  100% { width: 100% }
+}
+@keyframes blink {
+  50% { border-color: transparent }
 }

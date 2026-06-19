@@ -94,7 +94,7 @@ function PropertyDetail() {
       </p>
 
       <p className="text-2xl font-bold text-slate-900 mb-6">
-        ${price?.toLocaleString()}
+        FCFA {price?.toLocaleString()}
       </p>
 
       <div className="bg-white shadow-sm rounded-lg p-6 mb-6">
