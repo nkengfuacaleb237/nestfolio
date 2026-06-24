@@ -1,56 +1,97 @@
-# nestfolio
+# Nestfolio — Property Listing Platform
 
-A full-stack property listing platform built for the Web Development exam project.
+A full-stack property listing web application built with React, Node.js, Express, and MongoDB. Users can register, list properties for rent or sale, manage their portfolio, and browse/search listings with dynamic filters.
 
+**Live Demo:** https://nestfolio-nu.vercel.app/  
+**Repository:** https://github.com/nkengfuacaleb237/nestfolio
 
+---
 
-\## Features
+## Features
 
-\- Browse listings with filters (city, min/max price)
+- User registration and login with bcrypt-salted password hashing and JWT authentication
+- Protected routes — unauthenticated users are redirected to login
+- Create, edit, and delete property listings (Apartment, House, Studio)
+- Public feed with city and price range search filters
+- Private "My Listings" screen showing only the authenticated user's properties
+- Account dashboard — update profile (username, phone, avatar) and change password
+- Server-side ownership validation — non-authors receive 403 Forbidden on edit/delete
+- Responsive UI built with Tailwind CSS
 
-\- Register and login with JWT authentication
+---
 
-\- Create, edit, delete your own property listings
+## Tech Stack
 
-\- FCFA pricing, responsive dark navy and gold UI
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Vite, Tailwind CSS, React Router v6 |
+| Backend | Node.js, Express |
+| Database | MongoDB Atlas, Mongoose |
+| Auth | JWT (jsonwebtoken), bcryptjs |
+| HTTP Client | Axios (with global request interceptor) |
 
-\- Typewriter hero animation
+---
 
+## Architecture
 
+The backend follows a clean 3-layer architecture:
 
-\## Tech Stack
+- **Routes** — define endpoints and apply auth middleware
+- **Controllers** — handle business logic and validation
+- **Repositories** — all direct database interactions
 
-Frontend: React, Vite, Tailwind CSS, React Router
+---
 
-Backend: Node.js, Express, MongoDB, Mongoose
+## Getting Started
 
-Auth: JWT, bcrypt
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account (or local MongoDB)
 
-Testing: Jest, Supertest
+### Backend Setup
 
+```bash
+cd server
+npm install
+```
 
+Create a `.env` file in `/server`:
 
-\## Setup
+```bash
+npm run dev
+```
 
-cd server \&\& npm install \&\& npm start
+### Frontend Setup
 
-cd client \&\& npm install \&\& npm run dev
+```bash
+cd client
+npm install
+npm run dev
+```
 
+Visit `http://localhost:5173`
 
+---
 
-\## Security
+## API Endpoints
 
-\- bcrypt password hashing
+| Method | Endpoint | Access |
+|---|---|---|
+| POST | /api/auth/register | Public |
+| POST | /api/auth/login | Public |
+| GET | /api/properties | Public |
+| GET | /api/properties/:id | Public |
+| POST | /api/properties | Private |
+| PUT | /api/properties/:id | Private (owner only) |
+| DELETE | /api/properties/:id | Private (owner only) |
+| GET | /api/users/profile | Private |
+| PUT | /api/users/profile | Private |
+| PUT | /api/users/password | Private |
 
-\- JWT protected routes
+---
 
-\- Ownership checks on edit/delete
+## Author
 
-\- Correct HTTP status codes (400, 401, 403, 404, 500)
-
-
-
-\## Author
-
-Caleb Nkengfua - Web Development Exam Project 2026
-
+**Nkengfua Caleb Nkengafac**  
+Student ID: LMUI-24SWE296  
+Web Development Exam Project — 2026
